@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+
+
+<head>
+    <title>My Kitchen Website- Place Order</title>
+    <meta charset="utf-8" />
+	<link href="mywebstyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+</head>
+<body>
+    <div class="container">
+        <div class="kitch1 col-lg-12 col-md-12 col-sm-12 col-xs-12 "> <h2> Kitchen Cafe</h2> </div>
+
+        <div>
+            <div class="logo col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                <img src="photo_sample.png" />
+                <h3>Social Media Links</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com"target="_blank">Facebook</a></li>
+                    <li><a href="https://www.twitter.com" target="_blank">Twitter</a></li>
+                    <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+					 
+                </ul>
+            </div>
+            <form name="priceCalForm"  id="priceCalForm">
+                <div class="aboutme col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
+                   
+                    <h1>Place Order</h1>
+
+                    <select id="order" name="fooditems" onchange="foodMenu()" required>
+                        <option value="">-Select-</option>
+                        <option value="1">Fried Rice</option>
+                        <option value="2">Eba</option>
+                        <option value="3">Fufu</option>
+                        <option value="4">Pounded Yam</option>
+                    </select>
+                    <br />
+                    <br />
+                    <b>Unit Price</b>
+                    <p id="unitPrice"></p>
+
+                    <label>Quantity</label>&nbsp;
+                    <br />
+                    <input type="text" id="qty" required />
+                    <input type="button" id="submitcal" class="btn btn-primary"  value="calculate" onclick="myFunction()" />
+                    <br />
+                    <label>Total Amount</label>&nbsp;
+                    <br />
+                    <input type="text" id="priceAmt" />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <input type="submit" id="submitcal" class="submjitBtn btn btn-success" value="Order" />
+                   
+                </div>
+            </form>
+        </div>
+
+
+        <div id="footer">
+            <div class="pagefoot col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col4"><h4>Thanks for your patronage</h4></div>
+                <a type="button" href="./web1.htm" class="backhomebtn btn btn-primary">Back to Homepage </a>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+
+  // this function triggers when food item is selected 
+        function foodMenu() {
+            // declare w and assign the value of selected item to it 
+            var w = Number(document.getElementById("order").value);
+            // declare a variable called unit_Price
+            var unit_Price;
+            // conditions to assign a value to a unit price 
+            if (w == 1) {
+                 unit_Price= 20;
+            }
+            else if (w == 2) {
+                unit_Price = 10;
+            }
+            else if (w == 3) {
+                unit_Price = 15;
+            }
+            else if (w == 4) {
+                unit_Price = 25;
+
+            } else  {
+                unit_Price = "";
+            }
+
+            //display the value pf unit price in the unit price element 
+            document.getElementById("unitPrice").innerHTML = unit_Price;
+        }
+
+        // this function triggers when calculate button is clicked
+        function myFunction() {
+            
+            var x = document.getElementById("qty").value;
+            var y = document.getElementById("unitPrice").innerHTML;
+                       
+            var z = x * y;
+            document.getElementById("priceAmt").value = z;
+        }
+		
+        function submitOrder(){
+		 document.getElementById("successtag").value="Your order has successfully been placed";
+		
+		}
+    </script>
+</body>
+</html>
